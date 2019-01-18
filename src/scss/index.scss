@@ -1,0 +1,23 @@
+// Google Fonts
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300);
+
+// Font Variables
+$source-sans-pro: "Source Sans Pro", sans-serif;
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-weight: 300;
+}
+
+body {
+    font-family: $source-sans-pro;
+    color: white;
+    font-weight: 300;
+    ::placeholder {
+        font-family: $source-sans-pro;
+        color: white;
+        font-weight: 300;
+    }
+}

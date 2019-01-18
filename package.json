@@ -1,0 +1,22 @@
+{
+  "name": "react-website-login",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-scripts": "1.1.4",
+    "node-sass": "^4.9.3"
+  },
+
+  "scripts": {
+    "start": "npm run build-css && NODE_PATH=src react-scripts start",
+    "build": "npm run build-css && NODE_PATH=src react-scripts build",
+    "build-css": "node-sass src/scss/ -o src/css/",
+    "test": "NODE_PATH=src react-scripts test --env=jsdom",
+    "eject": "NODE_PATH=src react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "aws s3 sync build/ s3://$(aws cloudformation describe-stacks --stack-name 'react-login-website' --query 'Stacks[].Outputs[?OutputKey==`BucketName`].OutputValue' --output text)",
+    "url": "aws cloudformation describe-stacks --stack-name 'react-login-website' --query 'Stacks[].Outputs[?OutputKey==`WebsiteURL`].OutputValue' --output text"
+  }
+}

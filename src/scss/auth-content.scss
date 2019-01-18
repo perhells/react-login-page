@@ -1,0 +1,54 @@
+// Colors
+$prim: #e3a653;
+
+.container {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 600px;
+    height: 400px;
+    text-align: center;
+
+    z-index: 3;
+
+    h1 {
+        font-size: 40px;
+        transition-duration: 0.25s;
+        transition-timing-function: ease-in-out;
+        font-weight: 200;
+    }
+}
+
+.content {
+    padding: 20px 0;
+    position: relative;
+    z-index: 2;
+    transition-duration: 0.25s;
+    opacity: 1;
+    visibility: visible;
+
+    p {
+        margin-bottom: 10px;
+        font-size: 18px;
+    }
+
+    button {
+        appearance: none;
+        outline: 0;
+        background-color: white;
+        border: 0;
+        padding: 10px 15px;
+        color: $prim;
+        border-radius: 3px;
+        width: 250px;
+        cursor: pointer;
+        font-size: 18px;
+        transition-duration: 0.25s;
+        margin-bottom: 10px;
+
+        &:hover {
+            background-color: rgb(245, 247, 249);
+        }
+    }
+}

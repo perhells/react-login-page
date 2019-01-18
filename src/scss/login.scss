@@ -1,0 +1,107 @@
+// Colors
+$prim: #e3a653;
+
+.container {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 600px;
+    height: 400px;
+    text-align: center;
+
+    z-index: 3;
+
+    h1 {
+        font-size: 40px;
+        transition-duration: 0.25s;
+        transition-timing-function: ease-in-out;
+        font-weight: 200;
+    }
+
+    &.form-processing {
+        h1 {
+            transform: translateY(85px);
+        }
+    }
+    &.form-complete {
+        h1 {
+            transform: scale(5);
+            opacity: 0; 
+        }
+    }
+}
+
+form {
+    padding: 20px 0;
+    position: relative;
+    z-index: 2;
+    transition-duration: 0.25s;
+    opacity: 1;
+    visibility: visible;
+
+    p {
+        margin-bottom: 10px;
+        font-size: 18px;
+    }
+
+    &.form-hidden {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    input {
+        display: block;
+        appearance: none;
+        outline: 0;
+        border: 1px solid rgba(white, 0.4);
+        background-color: rgba(white, 0.2);
+        width: 250px;
+
+        border-radius: 3px;
+        padding: 10px 15px;
+        margin: 0 auto 10px auto;
+        display: block;
+        text-align: center;
+        font-size: 18px;
+
+        color: white;
+
+        transition-duration: 0.25s;
+        font-weight: 300;
+
+        &:hover {
+            background-color: rgba(white, 0.6);
+        }
+
+        &:focus {
+            background-color: white;
+            width: 280px;
+
+            color: $prim;
+        }
+
+        &.incorrect {
+            border: 1px solid rgba(red, 0.6);
+        }
+    }
+
+    button {
+        appearance: none;
+        outline: 0;
+        background-color: white;
+        border: 0;
+        padding: 10px 15px;
+        color: $prim;
+        border-radius: 3px;
+        width: 250px;
+        cursor: pointer;
+        font-size: 18px;
+        transition-duration: 0.25s;
+        margin-bottom: 10px;
+
+        &:hover {
+            background-color: rgb(245, 247, 249);
+        }
+    }
+}

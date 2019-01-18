@@ -1,0 +1,33 @@
+AWSTemplateFormatVersion: 2010-09-09
+Transform: AWS::Serverless-2016-10-31
+Description: S3 Bucket for React Login Website
+
+Resources:
+  S3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: PublicRead
+      WebsiteConfiguration:
+        IndexDocument: index.html
+        ErrorDocument: error.html
+
+  BucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Sid: PublicReadForGetBucketObjects
+            Effect: Allow
+            Principal: '*'
+            Action: s3:GetObject
+            Resource: !Sub arn:aws:s3:::${S3Bucket}/*
+      Bucket: !Ref S3Bucket
+
+Outputs:
+  BucketName:
+    Value: !Ref S3Bucket
+    Description: Name for S3 bucket
+
+  WebsiteURL:
+    Value: !GetAtt S3Bucket.WebsiteURL
+    Description: URL for website hosted on S3
