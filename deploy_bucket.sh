@@ -7,7 +7,7 @@ set -o pipefail
 PROJECT=react-login-website
 
 # Change the suffix on the bucket to something unique!
-BUCKET=$PROJECT-perhells
+BUCKET=$PROJECT-pehe
 
 # make a build directory to store artifacts
 rm -rf build

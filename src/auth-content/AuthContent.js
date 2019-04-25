@@ -6,7 +6,7 @@ class AuthContent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            buckets: [],
+            dataEntries: [],
             dataApiUrl: configuration.dataApiUrl
         }
     }
@@ -23,8 +23,9 @@ class AuthContent extends Component {
             console.log(response);
             if (xhr.status === 200) {
                 this.setState({
-                    buckets: response.buckets
+                    dataEntries: response
                 });
+                console.log('new state: ', this.state);
             } else {
                 console.log("Failure!");
             }
@@ -37,7 +38,7 @@ class AuthContent extends Component {
     }
 
     render() {
-        const bucketList = this.state.buckets.map((item, index) => <p key={index}>{item}</p>);
+        const dataList = this.state.dataEntries.map((item, index) => <p key={index}>{item.name} - {item.age}</p>);
         return (
             <div className='container'>
                 <h1>You are authenticated!</h1>
@@ -46,7 +47,7 @@ class AuthContent extends Component {
                     <br />
                     <button id="logout-button" onClick={this.logout.bind(this)}>Logout</button>
                     <div>
-                        {bucketList}
+                        {dataList}
                     </div>
                 </div>
             </div>
