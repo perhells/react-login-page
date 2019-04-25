@@ -25,7 +25,6 @@ class AuthContent extends Component {
                 this.setState({
                     dataEntries: response
                 });
-                console.log('new state: ', this.state);
             } else {
                 console.log("Failure!");
             }
